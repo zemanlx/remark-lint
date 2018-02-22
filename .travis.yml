@@ -1,0 +1,11 @@
+sudo: required
+services:
+  - docker
+# Use generic image to cut start-up time
+language: generic
+install:
+  - docker build -t zemanlx/remark-lint .
+  - alias remark="docker run --rm -i -v $PWD:/lint/input:ro zemanlx/remark-lint"
+script:
+  - docker run --rm -i -v $PWD:/lint/input:ro zemanlx/remark-lint --frail .
+  - remark --frail .
