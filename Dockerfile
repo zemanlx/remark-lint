@@ -1,4 +1,4 @@
-FROM node:8.15.0-alpine
+FROM node:10.16.0-alpine
 
 WORKDIR /lint
 COPY package.json package.json .remarkrc.yaml ./
