@@ -3,3 +3,4 @@ plugins:
   preset-lint-markdown-style-guide:
   preset-lint-recommended:
   validate-links:
+  lint-no-missing-blank-lines:

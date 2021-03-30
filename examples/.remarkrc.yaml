@@ -6,3 +6,4 @@ plugins:
   # Customized settings
   lint-list-item-indent: mixed
   lint-maximum-line-length: 100
+  lint-no-missing-blank-lines:

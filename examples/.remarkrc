@@ -5,6 +5,7 @@
     "preset-lint-recommended",
     "validate-links",
     ["lint-list-item-indent", "mixed"],
-    ["lint-maximum-line-length", 100]
+    ["lint-maximum-line-length", 100],
+    ["lint-no-missing-blank-lines"]
   ]
 }
