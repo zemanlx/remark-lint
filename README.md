@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/zemanlx/remark-lint.svg?branch=master)](https://travis-ci.org/zemanlx/remark-lint) [![Docker Automated build](https://img.shields.io/docker/automated/zemanlx/remark-lint.svg)](https://hub.docker.com/r/zemanlx/remark-lint/) [![Docker Build Status](https://img.shields.io/docker/build/zemanlx/remark-lint.svg)](https://hub.docker.com/r/zemanlx/remark-lint/)
-
 # Docker image for remark-lint
+
+[![Build Status](https://travis-ci.org/zemanlx/remark-lint.svg?branch=master)](https://travis-ci.org/zemanlx/remark-lint) [![Docker Automated build](https://img.shields.io/docker/automated/zemanlx/remark-lint.svg)](https://hub.docker.com/r/zemanlx/remark-lint/)
 
 Docker image for markdown code style linter [remark-lint](https://github.com/remarkjs/remark-lint).
 
