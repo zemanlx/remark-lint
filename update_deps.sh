@@ -65,12 +65,8 @@ docker run --rm -i --volume "${PWD}:${PWD}" --workdir "${PWD}" "node:${image_tag
     ash -c 'npm install && chown '"$(id -u):$(id -g)"' -R .'
 
 # Update package.json to latest dependencies
-if ! docker run --rm -i --volume "${PWD}:${PWD}" --workdir "${PWD}" "node:${image_tag}" \
-    npm outdated; then
-
-    docker run --rm -i --volume "${PWD}:${PWD}" --workdir "${PWD}" "node:${image_tag}" \
-        ash -c 'for pkg in $(sed -nr '\''s/.*"(.*)": ".*",*/\1/p'\'' package.json);do npm install --save-exact "${pkg}@latest";done && chown '"$(id -u):$(id -g)"' -R .'
-fi
+docker run --rm -i --volume "${PWD}:${PWD}" --workdir "${PWD}" "node:${image_tag}" \
+    ash -c 'set -x; for pkg in $(sed -nr '\''s/.*"(.*)": ".*",*/\1/p'\'' package.json);do npm install --save-exact "${pkg}@latest";done && chown '"$(id -u):$(id -g)"' -R .'
 
 # Update package-lock.json
 docker run --rm -i --volume "${PWD}:${PWD}" --workdir "${PWD}" "node:${image_tag}" \
