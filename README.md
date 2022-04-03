@@ -1,15 +1,15 @@
 # Docker image for remark-lint
 
-[![Build Status](https://travis-ci.org/zemanlx/remark-lint.svg?branch=master)](https://travis-ci.org/zemanlx/remark-lint) [![Docker Automated build](https://img.shields.io/docker/automated/zemanlx/remark-lint.svg)](https://hub.docker.com/r/zemanlx/remark-lint/)
+![Build Status](https://github.com/zemanlx/remark-lint/actions/workflows/docker-publish.yml/badge.svg)
 
 Docker image for markdown code style linter [remark-lint](https://github.com/remarkjs/remark-lint).
 
 ## Get
 
-Pull image from [Docker Hub](https://hub.docker.com/r/zemanlx/remark-lint/)
+Pull image from [GitHub Container Registry](https://ghcr.io/zemanlx/remark-lint)
 
 ```bash
-docker pull zemanlx/remark-lint
+docker pull ghcr.io/zemanlx/remark-lint
 ```
 
 ## Build
@@ -17,7 +17,7 @@ docker pull zemanlx/remark-lint
 Clone this repository and run
 
 ```bash
-docker build -t zemanlx/remark-lint .
+docker build -t ghcr.io/zemanlx/remark-lint .
 ```
 
 ## Use
@@ -25,16 +25,16 @@ docker build -t zemanlx/remark-lint .
 Go to your folder with markdown files you want to lint and run
 
 ```bash
-docker run --rm -i -v $PWD:/lint/input:ro zemanlx/remark-lint .
+docker run --rm -i -v $PWD:/lint/input:ro ghcr.io/zemanlx/remark-lint .
 ```
 
 You can even set it up as an alias for remark-cli's command `remark`.
 
 ```bash
-alias remark="docker run --rm -i -v $PWD:/lint/input:ro zemanlx/remark-lint"
+alias remark="docker run --rm -i -v $PWD:/lint/input:ro ghcr.io/zemanlx/remark-lint"
 
 remark --version
-remark: 9.0.0, remark-cli: 5.0.0
+remark: 14.0.2, remark-cli: 10.0.1
 ```
 
 Default config is `.remarkrc.yaml`
@@ -50,7 +50,7 @@ plugins:
 ### Example
 
 ```bash
-docker run --rm -i -v $PWD:/lint/input:ro zemanlx/remark-lint .
+docker run --rm -i -v $PWD:/lint/input:ro ghcr.io/zemanlx/remark-lint .
 
 README.md
   3:100  warning  Line must be at most 80 characters  maximum-line-length         remark-lint
@@ -73,7 +73,7 @@ An option `-f` or `--frail` can be useful for exiting with code `1` in case of
 any warning in your CI.
 
 ```bash
-docker run --rm -i -v $PWD:/lint/input:ro zemanlx/remark-lint --frail .
+docker run --rm -i -v $PWD:/lint/input:ro ghcr.io/zemanlx/remark-lint --frail .
 ```
 
 #### Travis CI
@@ -88,9 +88,9 @@ services:
 # Use your language or generic image to cut start-up time
 language: generic
 install:
-  - docker pull zemanlx/remark-lint
+  - docker pull ghcr.io/zemanlx/remark-lint
 script:
-  - docker run --rm -i -v $PWD:/lint/input:ro zemanlx/remark-lint --frail .
+  - docker run --rm -i -v $PWD:/lint/input:ro ghcr.io/zemanlx/remark-lint --frail .
 ```
 
 You can extend this example with your build instructions and tests or add it
