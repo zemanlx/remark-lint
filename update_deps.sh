@@ -19,9 +19,9 @@ test_image() {
 
 branch="update/$(date --utc '+%Y-%m-%d')"
 
-# Make sure we branch from the latest master
+# Make sure we branch from the latest main branch
 git reset --quiet --hard HEAD
-git checkout --quiet master
+git checkout --quiet main
 git pull --quiet
 
 # Delete that local branch if it already exist and create it again to start
