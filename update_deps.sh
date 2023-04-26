@@ -14,7 +14,7 @@ cd "$(dirname "$0")" # Always run from script location
 
 test_image() {
     docker build -t zemanlx/remark-lint .
-    docker run --rm -i -v "${PWD}:/lint/input:ro" zemanlx/remark-lint --frail .
+    docker run --rm -i -v "${PWD}:/lint/input:z" zemanlx/remark-lint --frail .
 }
 
 branch="update/$(date --utc '+%Y-%m-%d')"
