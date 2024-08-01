@@ -44,7 +44,7 @@ image_tag=$(curl 'https://hub.docker.com/v2/repositories/library/node/tags/?page
     | tail -n 1)
 
 # Get major and minor version of git package for image_tag
-git_version=$(docker run -i --rm "node:${image_tag}" apk --no-cache --quiet list 'git' | sed -r 's/^git-([0-9]+\.[0-9]+).*/\1/')
+git_version=$(docker run -i --rm "node:${image_tag}" apk --no-cache list 'git' | grep "git-" | sed -r 's/^git-([0-9]+\.[0-9]+).*/\1/')
 
 sed -i -r "s/^(FROM node:).+$/\1${image_tag}/" Dockerfile
 sed -i -r "s/(git~=)[0-9]+.[0-9]+/\1${git_version}/" Dockerfile
