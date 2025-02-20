@@ -1,10 +1,10 @@
-FROM node:22.5.1-alpine3.20
+FROM node:22.14.0-alpine3.21
 
 WORKDIR /lint
 COPY package.json package-lock.json .remarkrc.yaml ./
 RUN npm install \
     && npm link remark-cli \
-    && apk add --no-cache git~=2.45 \
+    && apk add --no-cache git~=2.47 \
     && git config --global --add safe.directory /lint/input
 
 WORKDIR /lint/input
